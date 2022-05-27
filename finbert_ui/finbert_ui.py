@@ -30,7 +30,7 @@ def plot_price(symbol, period):
 
     full_tickerDf = pd.concat([full_tickerDf, tickerDf], ignore_index=True)
 
-    return p, full_tickerDf
+    return p
 
 def compute_sentiments(symbol, nb):
     news = google_news.get_news(symbol, num = nb).value
@@ -67,7 +67,7 @@ def st_ui():
         news, overall_sentiment, overall_score = compute_sentiments(symbol, nb)
     to_print = f"General sentiment for {symbol} is: {overall_sentiment} ({overall_score}%)"
 
-    p, full_tickerDf = plot_price(symbol, period)
+    p = plot_price(symbol, period)
     col1, col2 = st.columns(2)
     with col1:
         st.header(to_print)
