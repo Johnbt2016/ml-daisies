@@ -8,7 +8,7 @@ from bokeh.plotting import figure
 import numpy as np
 
 finbert = pyd.Daisi("laiglejm/Finbert")
-google_news = pyd.Daisi("GoogleNews")
+google_news = pyd.Daisi("laiglejm/GoogleNews")
 
 def plot_price(symbol, period):
     title = f"{symbol} stock price evolution for the last {period} days"
