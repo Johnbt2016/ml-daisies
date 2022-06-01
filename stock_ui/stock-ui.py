@@ -29,6 +29,23 @@ def plot_price(symbol, period):
 
     return p, full_tickerDf
 
+def get_price(symbol, period):
+    
+    today = date.today()
+
+    # tickerSymbol = [str(Symbol1), str(Symbol2)]
+
+    full_tickerDf = pd.DataFrame()
+    tickerData = yf.Ticker(symbol)
+
+    tickerDf = tickerData.history(period='1d', start=today - timedelta(days = int(period)), end=today)
+    # tickerDf['Open'] /= np.max(tickerDf['Open'])
+    tickerDf["Symbol"] = symbol
+    tickerDf["Date"] = tickerDf.index
+
+    full_tickerDf = pd.concat([full_tickerDf, tickerDf], ignore_index=True)
+
+    return full_tickerDf
 
 def st_ui():
     st.set_page_config(layout = "wide")
