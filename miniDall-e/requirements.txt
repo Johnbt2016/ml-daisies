@@ -1,4 +1,4 @@
 flax==0.5.0
 dalle-mini
-git+https://github.com/patil-suraj/vqgan-jax.git
+git+https://github.com/Johnbt2016/vqgan-jax
 Pillow
