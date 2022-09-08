@@ -2,14 +2,12 @@ import jax
 import jax.numpy as jnp
 from dalle_mini import DalleBart, DalleBartProcessor
 from vqgan_jax.modeling_flax_vqgan import VQModel
-from transformers import CLIPProcessor, FlaxCLIPModel
 import random
 from flax.jax_utils import replicate
 from functools import partial
 from flax.training.common_utils import shard_prng_key
 import numpy as np
 from PIL import Image
-from tqdm.notebook import trange
 
 # Model references
 
@@ -35,19 +33,15 @@ model, params = DalleBart.from_pretrained(
 )
 
 # Load VQGAN
-vqgan, vqgan_params = VQModel.from_pretrained(
-    VQGAN_REPO, revision=VQGAN_COMMIT_ID, _do_init=False
+vqgan, vqgan_params = VQModel.from_pretrained(VQGAN_REPO, revision=VQGAN_COMMIT_ID, _do_init=False)
 
 params = replicate(params)
 vqgan_params = replicate(vqgan_params)
-)
 
 
 # model inference
 @partial(jax.pmap, axis_name="batch", static_broadcasted_argnums=(3, 4, 5, 6))
-def p_generate(
-    tokenized_prompt, key, params, top_k, top_p, temperature, condition_scale
-):
+def p_generate(tokenized_prompt, key, params, top_k, top_p, temperature, condition_scale):
     return model.generate(
         **tokenized_prompt,
         prng_key=key,
