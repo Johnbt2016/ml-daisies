@@ -14,19 +14,37 @@ pipe = StableDiffusionPipeline.from_pretrained(model_id, use_auth_token=value)
 pipe = pipe.to(device)
 
 
-def image_from_text(prompt):
-    with autocast("cuda"):
-        image = pipe(prompt, guidance_scale=7.5)["sample"][0]  
+def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
+
+    generator = torch.Generator(device=device).manual_seed(seed)
     
-    return image
+    #If you are running locally with CPU, you can remove the `with autocast("cuda")`
+    with autocast("cuda"):
+        images_list = pipe(
+            [prompt] * samples,
+            num_inference_steps=steps,
+            guidance_scale=scale,
+            generator=generator)
+    # with autocast("cuda"):
+    #     image = pipe(prompt, guidance_scale=7.5)["sample"][0]  
+    
+    return images_list
 
 def st_ui():
     st.title("Stable Diffusion")
     prompt = st.text_input("Enter your prompt")
 
-    image = image_from_text(prompt)
+    nb_samples = st.sidebar.number_input("Number of images", 4)
+    guidance = st.sidebar.number_input("Guidance", 7.5)
+    steps = st.sidebar.number_input("Steps", 45)
+    seed = st.sidebar.number_input("Seed", 1024)
 
-    st.image(image)
+    if st.button("Generate !"):
+
+        images = image_from_text(prompt,samples=nb_samples, scale=guidance, steps=steps, seed=seed)
+
+    for im in images:
+        st.image(im)
 
 if __name__ == "__main__":
     st_ui()
