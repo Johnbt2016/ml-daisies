@@ -3,3 +3,4 @@ torch==1.12.0+cu116
 transformers
 diffusers
 scipy
+streamlit
