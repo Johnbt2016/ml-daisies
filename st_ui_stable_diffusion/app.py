@@ -17,8 +17,8 @@ def st_ui():
 
         images = stable_diffusion.image_from_text(prompt,samples=nb_samples, scale=guidance, steps=steps, seed=seed).value
 
-    for im in images:
-        st.image(im)
+        for im in images:
+            st.image(im)
 
 if __name__ == "__main__":
     st_ui()
