@@ -1,14 +1,12 @@
 import torch
 from torch import autocast
 from diffusers import StableDiffusionPipeline
-import streamlit as st
 import os
 
 model_id = "CompVis/stable-diffusion-v1-4"
 device = "cuda"
 
 value = os.getenv("HF_TOKEN")
-st.write(value)
 
 pipe = StableDiffusionPipeline.from_pretrained(model_id, use_auth_token=value)
 pipe = pipe.to(device)
