@@ -33,21 +33,3 @@ def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
     
     return images
 
-def st_ui():
-    st.title("Stable Diffusion")
-    prompt = st.text_input("Enter your prompt")
-
-    nb_samples = st.sidebar.number_input("Number of images", 4)
-    guidance = st.sidebar.number_input("Guidance", 7.5)
-    steps = st.sidebar.number_input("Steps", 45)
-    seed = st.sidebar.number_input("Seed", 1024)
-
-    if st.button("Generate !"):
-
-        images = image_from_text(prompt,samples=nb_samples, scale=guidance, steps=steps, seed=seed)
-
-    for im in images:
-        st.image(im)
-
-if __name__ == "__main__":
-    st_ui()
