@@ -8,10 +8,10 @@ def st_ui():
     st.title("Stable Diffusion")
     prompt = st.text_input("Enter your prompt")
 
-    nb_samples = st.sidebar.number_input("Number of images", 4)
-    guidance = st.sidebar.number_input("Guidance", 7.5)
-    steps = st.sidebar.number_input("Steps", 45)
-    seed = st.sidebar.number_input("Seed", 1024)
+    nb_samples = st.sidebar.number_input("Number of images", value=4)
+    guidance = st.sidebar.number_input("Guidance", value=7.5)
+    steps = st.sidebar.number_input("Steps", value=45)
+    seed = st.sidebar.number_input("Seed", value=1024)
 
     if st.button("Generate !"):
 
