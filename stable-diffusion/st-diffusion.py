@@ -7,7 +7,7 @@ model_id = "CompVis/stable-diffusion-v1-4"
 device = "cuda"
 
 
-pipe = StableDiffusionPipeline.from_pretrained(model_id, use_auth_token=True)
+pipe = StableDiffusionPipeline.from_pretrained(model_id)
 pipe = pipe.to(device)
 
 
