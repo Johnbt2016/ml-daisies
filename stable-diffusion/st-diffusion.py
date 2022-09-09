@@ -27,8 +27,11 @@ def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
             generator=generator)
     # with autocast("cuda"):
     #     image = pipe(prompt, guidance_scale=7.5)["sample"][0]  
+    images = []
+    for i, image in enumerate(images_list["sample"]):
+        images.append(image)
     
-    return images_list
+    return images
 
 def st_ui():
     st.title("Stable Diffusion")
