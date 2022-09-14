@@ -2,6 +2,7 @@ import torch
 from torch import autocast
 from diffusers import StableDiffusionPipeline
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = 0
 
 model_id = "CompVis/stable-diffusion-v1-4"
 device = "cuda"
