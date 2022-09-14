@@ -2,7 +2,7 @@ import streamlit as st
 import pydaisi as pyd
 
 import pydaisi as pyd
-stable_diffusion = pyd.Daisi("laiglejm/stable diffusion", instance="dev3")
+stable_diffusion = pyd.Daisi("laiglejm/Stable Diffusion")
 
 def st_ui():
     st.title("Stable Diffusion")
