@@ -15,7 +15,7 @@ stable_diffusion = pyd.Daisi("laiglejm/Stable Diffusion")
 res = stable_diffusion.image_from_text(prompt="a cat with a hat", 
                                         samples=4, 
                                         scale=7.5, 
-                                        steps=10, 
+                                        steps=15, 
                                         seed=1024).value
 # returns an array of Pillow Images
 
