@@ -5,6 +5,10 @@ import pydaisi as pyd
 stable_diffusion = pyd.Daisi("laiglejm/Stable Diffusion")
 
 def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
+    '''
+    Returns an array of Pillow images.
+    '''
+    
     images = stable_diffusion.image_from_text(prompt,samples=samples, scale=scale, steps=steps, seed=seed).value
 
     return images
