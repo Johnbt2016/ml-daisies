@@ -4,6 +4,12 @@ import pydaisi as pyd
 import pydaisi as pyd
 stable_diffusion = pyd.Daisi("laiglejm/Stable Diffusion")
 
+def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
+    images = stable_diffusion.image_from_text(prompt,samples=samples, scale=scale, steps=steps, seed=seed).value
+
+    return images
+
+
 def st_ui():
     st.title("Stable Diffusion")
     prompt = st.text_input("Enter your prompt")
@@ -14,8 +20,8 @@ def st_ui():
     seed = st.sidebar.number_input("Seed", value=1024)
 
     if st.button("Generate !"):
-
-        images = stable_diffusion.image_from_text(prompt,samples=nb_samples, scale=guidance, steps=steps, seed=seed).value
+        with st.spinner("Generating your images (takes a few seconds)"):
+            images = image_from_text(prompt, samples=nb_samples, scale=guidance, steps=steps, seed=seed)
 
         for im in images:
             st.image(im)
