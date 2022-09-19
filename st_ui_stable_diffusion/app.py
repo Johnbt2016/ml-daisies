@@ -31,7 +31,7 @@ def st_ui():
     seed = st.sidebar.number_input("Seed", value=1024)
 
     if st.button("Generate !"):
-        with st.spinner(f"Generating your images (takes a few seconds). {time.time,2}"):
+        with st.spinner(f"Generating your images (takes a few seconds). {time.time(),2}"):
             images = image_from_text(prompt, samples=nb_samples, scale=guidance, steps=steps, seed=seed)
 
         for im in images:
