@@ -8,7 +8,7 @@ def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
     '''
     Returns an array of Pillow images.
     '''
-    
+
     images = stable_diffusion.image_from_text(prompt,samples=samples, scale=scale, steps=steps, seed=seed).value
 
     return images
@@ -16,7 +16,7 @@ def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
 
 def st_ui():
     st.title("Stable Diffusion")
-    prompt = st.text_input("Enter your prompt")
+    prompt = st.text_area("Enter your prompt", value="a cat with a hat, ultra-detailed. anime, pixiv, uhd 8k cryengine, octane render")
 
     nb_samples = st.sidebar.number_input("Number of images", value=4)
     guidance = st.sidebar.number_input("Guidance", value=7.5)
