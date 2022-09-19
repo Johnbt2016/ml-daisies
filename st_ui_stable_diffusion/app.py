@@ -16,6 +16,12 @@ def image_from_text(prompt, samples=4, scale=7.5, steps=45, seed=1024):
 
 def st_ui():
     st.title("Stable Diffusion")
+
+    if stable_diffusion.workers.number == 0:
+        st.info("Stable Diffusion service is currently not started. Allow 30 to 45 seconds for service to start when trigerring the first execution. Subsequent executions should complete in 4 to ~10 seconds, depending on your parameters.")
+    else:
+        st.info("Stable Diffusion service is currently live. Executions should complete in 4 to ~10 seconds, depending on your parameters.")
+
     prompt = st.text_area("Enter your prompt", value="a cat with a hat, ultra-detailed. anime, pixiv, uhd 8k cryengine, octane render")
 
     nb_samples = st.sidebar.number_input("Number of images", value=4)
