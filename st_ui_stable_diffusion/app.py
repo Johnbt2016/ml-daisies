@@ -1,5 +1,7 @@
 import streamlit as st
 import pydaisi as pyd
+import time
+import math
 
 import pydaisi as pyd
 stable_diffusion = pyd.Daisi("laiglejm/Stable Diffusion")
@@ -30,7 +32,7 @@ def st_ui():
     seed = st.sidebar.number_input("Seed", value=1024)
 
     if st.button("Generate !"):
-        with st.spinner("Generating your images (takes a few seconds)"):
+        with st.spinner(f"Generating your images (takes a few seconds). {math.round(time.time,2)}"):
             images = image_from_text(prompt, samples=nb_samples, scale=guidance, steps=steps, seed=seed)
 
         for im in images:
