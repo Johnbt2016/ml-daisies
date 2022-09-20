@@ -28,7 +28,7 @@ def st_ui():
     nb_samples = st.sidebar.number_input("Number of images", value=4)
     guidance = st.sidebar.number_input("Guidance", value=7.5)
     steps = st.sidebar.number_input("Steps", value=45)
-    seed = st.sidebar.number_input("Seed", value=1024)
+    seed = st.sidebar.number_input("Seed", value=1023)
 
     if st.button("Generate !"):
         with st.spinner(f"Generating your images (takes a few seconds)"):
