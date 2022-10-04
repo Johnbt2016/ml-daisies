@@ -146,29 +146,29 @@ def st_ui():
     with st.spinner("Stable Diffusion"):
         Models.modelSD()
 
-    with st.spinner("RealESRGAN"):
-        Models.realESRGAN()
+    # with st.spinner("RealESRGAN"):
+    #     Models.realESRGAN()
 
-    with st.spinner("GFPGAN"):
-        Models.GFPGAN()
+    # with st.spinner("GFPGAN"):
+    #     Models.GFPGAN()
 
-    with st.spinner("Latent Diffusion"):
-        Models.modelLD()
+    # with st.spinner("Latent Diffusion"):
+    #     Models.modelLD()
 
-    with st.spinner("SD Concept Lib"):
-        Models.SD_conLib()
+    # with st.spinner("SD Concept Lib"):
+    #     Models.SD_conLib()
 
-    with st.spinner("Blip"):
-        Models.modelBlip()
+    # with st.spinner("Blip"):
+    #     Models.modelBlip()
 
-    with st.spinner("Waifu Diffusion"):
-        Models.modelWD()
+    # with st.spinner("Waifu Diffusion"):
+    #     Models.modelWD()
 
-    with st.spinner("Waifu Pruned"):
-        Models.modelLD()
+    # with st.spinner("Waifu Pruned"):
+    #     Models.modelLD()
 
-    with st.spinner("TrinArt SD"):
-        Models.modelTSD()
+    # with st.spinner("TrinArt SD"):
+    #     Models.modelTSD()
 
 if __name__ == "__main__":
     st_ui()
