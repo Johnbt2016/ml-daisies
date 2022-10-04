@@ -41,7 +41,7 @@ class Models():
     dest = os.path.expanduser("~/" + dest)
 
     def modelSD():
-
+        exceptions_log = []
         exceptions_log = dwnld_model(exceptions_log, 
                                     address = 'https://www.googleapis.com/storage/v1/b/aai-blog-files/o/sd-v1-4.ckpt?alt=media', 
                                     target_location = f'{dest}/models/ldm/stable-diffusion-v1/', 
@@ -50,6 +50,7 @@ class Models():
                                     strmlit_ui=True)
 
     def realESRGAN():
+        exceptions_log = []
         exceptions_log = dwnld_model(exceptions_log, 
                                     address = 'https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth', 
                                     target_location = f'{dest}/models/src/realesrgan/experiments/pretrained_models', 
@@ -65,7 +66,7 @@ class Models():
                                     strmlit_ui=True)
     
     def GFPGAN():
-
+        exceptions_log = []
         exceptions_log = dwnld_model(exceptions_log, 
                                     address = 'https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth', 
                                     target_location = f'{dest}/models/src/gfpgan/experiments/pretrained_models', 
@@ -79,7 +80,7 @@ class Models():
         if not Path(f'{dest}/models/src/latent-diffusion').exists():
             os.system(f'cd {dest}/models/ ; git clone https://github.com/devilismyfriend/latent-diffusion.git')
             os.system(f'mv {dest}/models/latent-diffusion  {dest}/models/src/latent-diffusion')
-
+        exceptions_log = []
         exceptions_log = dwnld_model(exceptions_log, 
                                     address = 'https://heibox.uni-heidelberg.de/f/31a76b13ea27482981b4/?dl=1', 
                                     target_location = f'{dest}/models/src/latent-diffusion/experiments/pretrained_models', 
