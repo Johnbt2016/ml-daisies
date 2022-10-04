@@ -16,7 +16,7 @@
 import os
 import os.path as op
 import streamlit as st
-dest = "$DAISI_MODEL_DIR/stable_diffusion_models"
+dest = "/pebble_tmp/models/stable_diffusion_models"
 
 class Models:
     
