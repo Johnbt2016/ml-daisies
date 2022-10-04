@@ -101,8 +101,8 @@ class Models():
 
         if not Path(f'{dest}/models/custom/sd-concepts-library').exists():
             os.system(
-                f'cd {dest}/models/ ; git clone https://github.com/sd-webui/sd-concepts-library models/custom/')
-            return st.write("Stable Diffusion Concept Library successfully installed !")
+                f'cd {dest}/models/ ; git clone https://github.com/sd-webui/sd-concepts-library custom/')
+
 
     # Blip Model
     def modelBlip():
@@ -110,32 +110,36 @@ class Models():
         if not Path(f'{dest}/models/custom/blip/model__base_caption.pth').exists():
             # return st.write(f"Blip Model is to be installed !")
             os.mkdir(f'{dest}/models/custom/blip')
-            os.system(f"wget -O {dest}/models/custom/blip/model__base_caption.pth https://cdn-lfs.huggingface.co/repos/cd/15/cd1551e1e53c5049819b5349e3e386c497a767dfeebb8e146ae2adb8f39c8d10/96ac8749bd0a568c274ebe302b3a3748ab9be614c737f3d8c529697139174086?response-content-disposition=attachment%3B%20filename%3D%22model__base_caption.pth%22")
-            return st.write(f"Blip model successfully installed")
+            exceptions_log = dwnld_model(exceptions_log, 
+                                    address = "https://cdn-lfs.huggingface.co/repos/cd/15/cd1551e1e53c5049819b5349e3e386c497a767dfeebb8e146ae2adb8f39c8d10/96ac8749bd0a568c274ebe302b3a3748ab9be614c737f3d8c529697139174086?response-content-disposition=attachment%3B%20filename%3D%22model__base_caption.pth%22", 
+                                    target_location = f'{dest}/models/custom/blip/', 
+                                    source_model_name= f'{dest}/models/custom/blip/96ac8749bd0a568c274ebe302b3a3748ab9be614c737f3d8c529697139174086?response-content-disposition=attachment;\ filename=\"model__base_caption.pth\"', 
+                                    target_model_name= f'{dest}/models/custom/blip/model__base_caption.pth', 
+                                    strmlit_ui=True)
+            # os.system(f"wget -O {dest}/models/custom/blip/model__base_caption.pth https://cdn-lfs.huggingface.co/repos/cd/15/cd1551e1e53c5049819b5349e3e386c497a767dfeebb8e146ae2adb8f39c8d10/96ac8749bd0a568c274ebe302b3a3748ab9be614c737f3d8c529697139174086?response-content-disposition=attachment%3B%20filename%3D%22model__base_caption.pth%22")
+
 
     # Waifu Diffusion v1.2
     def modelWD():
 
         if not Path(f'{dest}/models/custom/waifu-diffusion').exists():
             os.system(
-                f"cd {dest}/models/ ;git clone https://huggingface.co/hakurei/waifu-diffusion models/custom/waifu-diffusion")
-            return st.write(f"Waifu Diffusion model successfully installed")
+                f"cd {dest}/models/ ;git clone https://huggingface.co/hakurei/waifu-diffusion custom/waifu-diffusion")
+
 
     # Waifu Diffusion v1.2 Pruned
     def modelWDP():
 
         if not Path(f'{dest}/models/custom/pruned-waifu-diffusion').exists():
             os.system(
-                f"cd {dest}/models/ ;git clone https://huggingface.co/crumb/pruned-waifu-diffusion models/custom/pruned-waifu-diffusion")
-            return st.write(f"Waifu Pruned model successfully installed")
+                f"cd {dest}/models/ ;git clone https://huggingface.co/crumb/pruned-waifu-diffusion custom/pruned-waifu-diffusion")
 
     # TrinArt Stable Diffusion v2
     def modelTSD():
 
         if not Path(f'{dest}/models/custom/trinart_stable_diffusion_v2').exists():
             os.system(
-                f"cd {dest}/models/ ;git clone https://huggingface.co/naclbit/trinart_stable_diffusion_v2 models/custom/trinart_stable_diffusion_v2")
-            return st.write(f"TrinArt successfully installed !")
+                f"cd {dest}/models/ ;git clone https://huggingface.co/naclbit/trinart_stable_diffusion_v2 custom/trinart_stable_diffusion_v2")
 
     
 
