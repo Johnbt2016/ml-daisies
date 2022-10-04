@@ -21,7 +21,7 @@ def dwnld_model(exceptions_log, address, target_location, source_model_name=None
         msg = f"Downloading {address} to {target_location}"
         print_progress(msg, strmlit_ui)
         try:
-            os.system(f'wget {address} -P {target_location}')
+            os.system(f'wget -bqc {address} -P {target_location}')
             if target_model_name is not None:
                 os.system(f'mv {source_model_name} {target_model_name}')
             print_progress("Done", strmlit_ui)
