@@ -80,7 +80,7 @@ class Models():
         if not Path(f'{dest}/models/src/latent-diffusion').exists():
             os.system(f'cd {dest}/models/ ; git clone https://github.com/devilismyfriend/latent-diffusion.git')
             os.system(f'mv {dest}/models/latent-diffusion  {dest}/models/src/latent-diffusion')
-        exceptions_log = []
+        exceptions_log = [] 
         exceptions_log = dwnld_model(exceptions_log, 
                                     address = 'https://heibox.uni-heidelberg.de/f/31a76b13ea27482981b4/?dl=1', 
                                     target_location = f'{dest}/models/src/latent-diffusion/experiments/pretrained_models', 
@@ -143,31 +143,31 @@ class Models():
 
 def st_ui():
     st.title("Stable Diffusion models download")
-    if st.button("Stable Diffusion"):
+    with st.spinner("Stable Diffusion"):
         Models.modelSD()
 
-    if st.button("RealESRGAN"):
+    with st.spinner("RealESRGAN"):
         Models.realESRGAN()
 
-    if st.button("GFPGAN"):
+    with st.spinner("GFPGAN"):
         Models.GFPGAN()
 
-    if st.button("Latent Diffusion"):
+    with st.spinner("Latent Diffusion"):
         Models.modelLD()
 
-    if st.button("SD Concept Lib"):
+    with st.spinner("SD Concept Lib"):
         Models.SD_conLib()
 
-    if st.button("Blip"):
+    with st.spinner("Blip"):
         Models.modelBlip()
 
-    if st.button("Waifu Diffusion"):
+    with st.spinner("Waifu Diffusion"):
         Models.modelWD()
 
-    if st.button("Waifu Pruned"):
+    with st.spinner("Waifu Pruned"):
         Models.modelLD()
 
-    if st.button("TrinArt SD"):
+    with st.spinner("TrinArt SD"):
         Models.modelTSD()
 
 if __name__ == "__main__":
