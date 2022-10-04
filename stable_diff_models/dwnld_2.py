@@ -106,6 +106,7 @@ class Models():
 
     # Blip Model
     def modelBlip():
+        exceptions_log = [] 
 
         if not Path(f'{dest}/models/custom/blip/model__base_caption.pth').exists():
             # return st.write(f"Blip Model is to be installed !")
