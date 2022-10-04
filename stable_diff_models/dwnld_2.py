@@ -110,7 +110,6 @@ class Models():
 
         if not Path(f'{dest}/models/custom/blip/model__base_caption.pth').exists():
             # return st.write(f"Blip Model is to be installed !")
-            os.mkdir(f'{dest}/models/custom/blip')
             exceptions_log = dwnld_model(exceptions_log, 
                                     address = "https://cdn-lfs.huggingface.co/repos/cd/15/cd1551e1e53c5049819b5349e3e386c497a767dfeebb8e146ae2adb8f39c8d10/96ac8749bd0a568c274ebe302b3a3748ab9be614c737f3d8c529697139174086?response-content-disposition=attachment%3B%20filename%3D%22model__base_caption.pth%22", 
                                     target_location = f'{dest}/models/custom/blip/', 
